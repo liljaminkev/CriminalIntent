@@ -1,31 +1,48 @@
 package com.example.kevinchan.criminalintent;
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
- * Created by kevinchan on 4/25/17.
+ * Created by kevin on 4/26/17.
  */
 
 public class Crime {
     private UUID mId;
     private String mTitle;
+    private Date mDate;
+    private boolean mSolved;
 
-
-    public UUID getId() {
-        return mId;
+    public void setmTitle(String mTitle) {
+        this.mTitle = mTitle;
     }
 
-    public String getTitle() {
+    public void setmDate(Date mDate) {
+        this.mDate = mDate;
+    }
+
+    public void setmSolved(boolean mSolved) {
+        this.mSolved = mSolved;
+    }
+
+    public String getmTitle() {
         return mTitle;
     }
 
-    public void setTitle(String title) {
-        mTitle = title;
+    public UUID getmId() {
+        return mId;
     }
 
-    public Crime(){
+    public Date getmDate() {
+        return mDate;
+    }
+
+    public boolean ismSolved() {
+        return mSolved;
+    }
+
+    public Crime() {
         mId = UUID.randomUUID();
+        mDate = new Date();
     }
-
-
 }
