@@ -24,6 +24,9 @@
         //
         <activity android:name=".CriminalActivity">
         </activity>
+
+
+
     </application>
 
 </manifest>

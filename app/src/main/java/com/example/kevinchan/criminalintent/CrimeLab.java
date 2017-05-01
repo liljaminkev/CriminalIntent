@@ -31,7 +31,7 @@ public class CrimeLab {
             crime.setmSolved(i%2 == 0);
             mCrimes.add(crime);
         }
-    };
+    }
 
     public List<Crime> getCrimes(){
         return mCrimes;
