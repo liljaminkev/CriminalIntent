@@ -22,7 +22,7 @@
 
 
         //
-        <activity android:name=".CriminalActivity">
+        <activity android:name=".CrimePagerActivity">
         </activity>
 
 
