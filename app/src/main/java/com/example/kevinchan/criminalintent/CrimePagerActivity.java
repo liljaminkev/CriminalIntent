@@ -22,31 +22,30 @@ public class CrimePagerActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private List<Crime> mCrimes;
 
-    public static Intent newIntent(Context packageContext, UUID crimeId){
+    public static Intent newIntent(Context packageContext, UUID crimeId) {
         Intent intent = new Intent(packageContext, CrimePagerActivity.class);
         intent.putExtra(EXTRA_CRIME_ID, crimeId);
         return intent;
     }
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crime_pager);
 
-        UUID crimeId = (UUID) getIntent().getSerializableExtra(EXTRA_CRIME_ID);
+        UUID crimeId = (UUID) getIntent()
+                .getSerializableExtra(EXTRA_CRIME_ID);
 
         mViewPager = (ViewPager) findViewById(R.id.crime_view_pager);
 
         mCrimes = CrimeLab.get(this).getCrimes();
-        FragmentManager fragmentmanager = getSupportFragmentManager();
-        mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentmanager) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
 
             @Override
             public Fragment getItem(int position) {
                 Crime crime = mCrimes.get(position);
-
-                return CrimeFragment.newInstance(crime.getmId());
+                return CrimeFragment.newInstance(crime.getId());
             }
 
             @Override
@@ -55,8 +54,8 @@ public class CrimePagerActivity extends AppCompatActivity {
             }
         });
 
-        for (int i = 0; i < mCrimes.size(); i++){
-            if (mCrimes.get(i).getmId().equals(crimeId)){
+        for (int i = 0; i < mCrimes.size(); i++) {
+            if (mCrimes.get(i).getId().equals(crimeId)) {
                 mViewPager.setCurrentItem(i);
                 break;
             }
