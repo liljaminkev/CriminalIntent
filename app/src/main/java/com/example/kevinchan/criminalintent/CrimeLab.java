@@ -46,6 +46,11 @@ public class CrimeLab {
         mDatabase.insert(CrimeDbSchema.CrimeTable.NAME, null, values);
     }
 
+    public void removeCrime(Crime c)
+    {
+        mDatabase.delete(CrimeDbSchema.CrimeTable.NAME, c.getId() + "= " + CrimeDbSchema.CrimeTable.Cols.UUID, null);
+    }
+
     public List<Crime> getCrimes() {
         List<Crime> crimes = new ArrayList<>();
         CrimeCursorWrapper cursor = queryCrimes(null, null);
